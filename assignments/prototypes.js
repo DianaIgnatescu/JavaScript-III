@@ -18,6 +18,7 @@
 const GameObject = function (gameObjectAttrs) {
   this.createdAt = gameObjectAttrs.createdAt;
   this.dimensions = gameObjectAttrs.dimensions;
+  this.name = charAttributes.name;
 }
 
 GameObject.prototype.destroy = function () {
@@ -34,7 +35,6 @@ GameObject.prototype.destroy = function () {
 
 const CharacterStats = function (charAttributes) {
   this.healthPoints = charAttributes.healthPoints;
-  this.name = charAttributes.name;
   GameObject.call(this, charAttributes);
 }
 
@@ -58,7 +58,6 @@ const Humanoid = function (humanoidAttrs) {
   this.team = humanoidAttrs.team;
   this.weapons = humanoidAttrs.weapons;
   this.language = humanoidAttrs.language;
-  this.health = humanoidAttrs.health;
   CharacterStats.call(this, humanoidAttrs);
 }
 
