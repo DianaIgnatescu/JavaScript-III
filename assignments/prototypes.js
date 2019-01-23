@@ -58,6 +58,7 @@ const Humanoid = function (humanoidAttrs) {
   this.team = humanoidAttrs.team;
   this.weapons = humanoidAttrs.weapons;
   this.language = humanoidAttrs.language;
+  this.health = humanoidAttrs.health;
   CharacterStats.call(this, humanoidAttrs);
 }
 
@@ -141,3 +142,74 @@ Humanoid.prototype.greet = function () {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+  const Villain = function (villainAttrs) {
+    Humanoid.call(this, villainAttrs);
+  }
+
+  Villain.prototype = Object.create(Humanoid.prototype);
+
+  Villain.prototype.blizzard = function () {
+    this.healthPoints -= 10;
+    if (this.healthPoints > 0) {
+      return `${this.name} has been hit with a Blizzard attach and only ${this.healthPoints} health points left.`
+    }
+    else {
+      return `Game Over: ${this.name} has been defeated.`;
+    }
+  }
+
+  const Hero = function (heroAttrs) {
+    Humanoid.call(this, heroAttrs);
+  }
+
+  Hero.prototype = Object.create(Humanoid.prototype);
+
+  Hero.prototype.ignite = function () {
+    this.healthPoints -= 10;
+    if (this.healthPoints > 0) {
+      return `${this.name} has been hit with a Firestorm attack and only ${this.healthPoints} health points left.`
+    }
+    else {
+      return `Game Over: ${this.name} has been defeated.`;
+    }
+  }
+
+  const dragon = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 1,
+      height: 5,
+    },
+    healthPoints: 40,
+    name: 'Alduin',
+    team: 'Downguard',
+    weapons: [
+      'Fire',
+      'Dragon Wings',
+    ],
+    language: 'Dovahzul',
+  });
+
+  const atronach = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 3,
+      height: 1,
+    },
+    healthPoints: 20,
+    name: 'Frost',
+    team: 'Cragwallow Slope',
+    weapons: [
+      'Frostbite',
+      'Ice armor',
+    ],
+    language: 'Daedric',
+  });  
+
+console.log(dragon.blizzard());
+console.log(atronach.ignite());
+console.log(dragon.blizzard());
+console.log(atronach.ignite());
