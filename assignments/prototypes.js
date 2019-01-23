@@ -74,7 +74,7 @@ Humanoid.prototype.greet = function () {
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
 
-// Test you work by un-commenting these 3 objects and the list of console logs below:
+// Test your work by un-commenting these 3 objects and the list of console logs below:
 
   const mage = new Humanoid({
     createdAt: new Date(),
@@ -152,7 +152,7 @@ Humanoid.prototype.greet = function () {
   Villain.prototype.blizzard = function () {
     this.healthPoints -= 10;
     if (this.healthPoints > 0) {
-      return `${this.name} has been hit with a Blizzard attach and only ${this.healthPoints} health points left.`
+      return `${this.name} has been hit with a Blizzard attach and only has ${this.healthPoints} health points left.`
     }
     else {
       return `Game Over: ${this.name} has been defeated.`;
@@ -168,7 +168,7 @@ Humanoid.prototype.greet = function () {
   Hero.prototype.ignite = function () {
     this.healthPoints -= 10;
     if (this.healthPoints > 0) {
-      return `${this.name} has been hit with a Firestorm attack and only ${this.healthPoints} health points left.`
+      return `${this.name} has been hit with a Firestorm attack and only has ${this.healthPoints} health points left.`
     }
     else {
       return `Game Over: ${this.name} has been defeated.`;
