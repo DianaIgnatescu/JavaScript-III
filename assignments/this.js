@@ -16,14 +16,56 @@
 
 // code example for Window Binding
 
+function alert(warning) {
+  console.log(this);
+  return warning;
+}
+alert('Do Not Enter!');
+
 // Principle 2
 
 // code example for Implicit Binding
+
+const person = {
+  name: 'Suzie',
+  age: 32,
+  introduction: function() {
+    console.log(`My name is ${this.name} and I am ${this.age} years old`)
+  }
+};
+
+person.introduction();
 
 // Principle 3
 
 // code example for New Binding
 
+const Mutant = function(ability, real_name, status) {
+  this.ability = ability;
+  this.real_name = real_name;
+  this.status = status;
+  this.speak = function() {
+    console.log(`My real name is ${this.real_name}, I am a ${this.status}, and my ability is ${this.ability}`)
+  }
+};
+
+const mystique = new Mutant('shape-shifting', 'Raven', 'villain');
+const xavier = new Mutant('reading minds', 'Charles', 'hero');
+mystique.speak();
+xavier.speak();
+
 // Principle 4
 
 // code example for Explicit Binding
+
+const favoriteHobby = function() {
+  console.log(`I love ${this.hobby}.`);
+}
+
+const robert = {
+  name: 'Robert',
+  age: 41,
+  hobby: 'collecting stamps'
+};
+
+favoriteHobby.call(robert);
