@@ -18,11 +18,11 @@
 const GameObject = function (gameObjectAttrs) {
   this.createdAt = gameObjectAttrs.createdAt;
   this.dimensions = gameObjectAttrs.dimensions;
-  this.name = charAttributes.name;
+  this.name = gameObjectAttrs.name;
 }
 
 GameObject.prototype.destroy = function () {
-  console.log(`${this.name} was removed from the game.`);
+  return `${this.name} was removed from the game.`;
 }
 
 /*
